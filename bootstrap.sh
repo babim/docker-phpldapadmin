@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -e
 
 LDAP_SERVER_HOST="${LDAP_SERVER_HOST:-openldap}"
