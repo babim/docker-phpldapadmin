@@ -1,12 +1,8 @@
-FROM dinkel/nginx-phpfpm:8.2
-
-MAINTAINER Christian Luginbühl <dinkel@pimprecords.com>
-
-ENV PHPLDAPADMIN_VERSION 1.2.2
+FROM babim/nginx.php5
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-        phpldapadmin=${PHPLDAPADMIN_VERSION}* && \
+        phpldapadmin && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
