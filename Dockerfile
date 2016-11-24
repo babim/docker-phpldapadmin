@@ -1,10 +1,6 @@
-FROM babim/nginx.php5
+FROM babim/nginx.php5.alpine
 
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
-        phpldapadmin && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+RUN apk add --no-cache phpldapadmin
 
 RUN ln -sf /usr/share/phpldapadmin /var/www
 
@@ -18,5 +14,3 @@ COPY bootstrap.sh /
 
 ENTRYPOINT ["/bootstrap.sh"]
 
-# This script comes from the parent image
-CMD ["/run.sh"]
