@@ -13,4 +13,8 @@ COPY www.conf /etc/php5/fpm/pool.d/
 COPY bootstrap.sh /
 
 ENTRYPOINT ["/bootstrap.sh"]
+# Define default command.
+CMD ["nginx", "-g", "daemon off;"]
 
+# Expose ports.
+EXPOSE 80 443
