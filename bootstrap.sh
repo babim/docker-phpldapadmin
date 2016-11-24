@@ -25,4 +25,7 @@ if [ "$1" = '/run.sh' ]; then
 	exec /run.sh "$@"
 fi
 
+# run PHP-fpm
+php-fpm -D
+
 exec "$@"
