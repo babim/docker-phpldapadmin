@@ -1,6 +1,17 @@
-FROM babim/alpinebase
+FROM babim/debianbase
 
-RUN apk add --no-cache nginx php5 php5-ldap php5-fpm php-ldap php-xml php-gettext phpldapadmin
+ENV NGINX_VERSION 1.6.2
+ENV PHP_VERSION 5.6.20
+ENV PHPLDAPADMIN_VERSION 1.2.3
+
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
+        ca-certificates \
+        nginx=${NGINX_VERSION}* \
+        php5-fpm=${PHP_VERSION}* && \
+        phpldapadmin=${PHPLDAPADMIN_VERSION}* && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN ln -sf /usr/share/phpldapadmin /var/www
 
