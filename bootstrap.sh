@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 LDAP_SERVER_HOST="${LDAP_SERVER_HOST:-openldap}"
@@ -26,6 +26,6 @@ if [ "$1" = '/run.sh' ]; then
 fi
 
 # run PHP-fpm
-php-fpm -D
+php-fpm5.6 -D
 
 exec "$@"
