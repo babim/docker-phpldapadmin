@@ -1,6 +1,6 @@
-FROM babim/nginx.php5.alpine
+FROM babim/alpinebase
 
-RUN apk add --no-cache phpldapadmin
+RUN apk add --no-cache phpldapadmin php5 php5-ldap nginx php5-fpm
 
 RUN ln -sf /usr/share/phpldapadmin /var/www
 
