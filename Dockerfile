@@ -4,7 +4,7 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
         ca-certificates \
         nginx \
-        php5-fpm && \
+        php5-fpm \
         phpldapadmin && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
