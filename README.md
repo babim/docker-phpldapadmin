@@ -13,7 +13,7 @@ Usage
 
 Normally the application is started like so:
 
-    docker run -d -p 80:80 --link openldap:openldap dinkel/phpldapadmin
+    docker run -d -p 80:80 --link openldap:openldap babim/phpldapadmin
 
 Configuration (environment variables)
 -------------------------------------
