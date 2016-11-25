@@ -1,7 +1,7 @@
 FROM babim/debianbase
 
 RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
         ca-certificates \
         nginx \
         php5-fpm && \
