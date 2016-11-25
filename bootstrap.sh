@@ -26,6 +26,6 @@ if [ "$1" = '/run.sh' ]; then
 fi
 
 # run PHP-fpm
-php-fpm5.6 -D
+php5-fpm -D
 
 exec "$@"
