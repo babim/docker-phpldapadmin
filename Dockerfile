@@ -9,7 +9,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN ln -sf /usr/share/phpldapadmin /var/www
+RUN rm -rf /var/www && ln -sf /usr/share/phpldapadmin /var/www
 
 RUN mv /var/www/config/config.php.example /var/www/config/config.php
 
