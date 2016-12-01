@@ -11,13 +11,11 @@ RUN apt-get update && \
 
 RUN rm -rf /var/www /etc/nginx/site*/ && ln -sf /usr/share/phpldapadmin /var/www
 
-RUN mv /var/www/config/config.php.example /var/www/config/config.php
+RUN mv /var/www/config/config.php.example /var/www/config/config.php && \
+    rm -f /etc/nginx/conf.d/default.conf && rm -f /etc/php5/fpm/pool.d/www.conf
 
-COPY default.conf /etc/nginx/conf.d/
-
-COPY www.conf /etc/php5/fpm/pool.d/
-
-COPY bootstrap.sh /
+COPY entrypoint.sh /
+RUN chmod +x entrypoint.sh
 
 ENTRYPOINT ["/bootstrap.sh"]
 # Define default command.
